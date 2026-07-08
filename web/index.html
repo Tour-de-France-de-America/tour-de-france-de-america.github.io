@@ -6,14 +6,14 @@
 <title>*~* TOUR DE FRANCE de AMERICA *~*</title>
 <style>
   /* ===================================================================
-     TOUR DE FRANCE de AMERICA — served fresh from 1999.
+     TOUR DE FRANCE de AMERICA, served fresh from 1999.
      Best viewed in Netscape Navigator at 800x600.
      =================================================================== */
   :root{
     --red:#B42033; --silver:#CECECE; --white:#FEFEFE; --blue:#3C3B6E;
     --j-yellow:#f4d03f; --j-green:#27c06a;
     --paper:#fffdf2; --ink:#111; --dim:#3a3a3a; --faint:#6a6a6a;
-    --link:#0000 cc;
+    --link:#0000cc;
   }
   *{box-sizing:border-box}
   body{margin:0;color:var(--ink);font-family:"Times New Roman",Times,Georgia,serif;font-size:16px;line-height:1.4;
@@ -244,7 +244,7 @@
   <div class="section-title">Our American Heroes</div>
   <div class="riders" id="riders"></div>
 
-  <div class="section-title">Nation Standings &mdash; If You Really Must
+  <div class="section-title">Nation Standings: If You Really Must
     <span class="toggle" id="natToggle">
       <button data-m="best" class="on">Best Rider</button>
       <button data-m="avg">Avg GC Time</button>
@@ -266,7 +266,7 @@
 const D = window.TDFDA;
 const byBib = Object.fromEntries(D.riders.map(r=>[r.bib,r]));
 const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild};
-function ord(n){ if(!n)return '—'; const s=['th','st','nd','rd'],v=n%100; return n+(s[(v-20)%10]||s[v]||s[0]); }
+function ord(n){ if(!n)return '-'; const s=['th','st','nd','rd'],v=n%100; return n+(s[(v-20)%10]||s[v]||s[0]); }
 
 const NUMW=['zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'];
 const nw=(n)=> NUMW[n]!==undefined?NUMW[n]:n;
@@ -303,7 +303,7 @@ const jwrap = document.getElementById('jerseys');
         <div class="jicon">${{yellow:'🟡',green:'🟢',polka:'🔴',white:'⚪'}[j.color]}</div></div>
       <div class="jbody">
         <div class="jholder"><span class="em">${holder?holder.emoji:''}</span>
-          <span class="nm">${holder?holder.name:'—'}</span></div>
+          <span class="nm">${holder?holder.name:'-'}</span></div>
         <div class="jstreak">👑 Held for <b>${j.streak}</b> straight stage${j.streak===1?'':'s'}</div>
         <ul class="mini">${mini}</ul>
       </div>
@@ -322,10 +322,10 @@ const leaderCard = D.gc_leader.is_american
 const wonStage = D.stage_mvp.rank === 1;
 const mvpCard = wonStage
   ? `<div class="ccard hero"><span class="big">🏆</span><div>
-      <div class="lbl">Stage ${D.stage_mvp.stage} — AMERICA WINS. AS USUAL.</div>
+      <div class="lbl">Stage ${D.stage_mvp.stage}: AMERICA WINS. AS USUAL.</div>
       <div class="val">${mvp?mvp.emoji:''} ${D.stage_mvp.name} <small>· first across the line, obviously</small></div></div></div>`
   : `<div class="ccard hero"><span class="big">🦅</span><div>
-      <div class="lbl">Stage ${D.stage_mvp.stage} — America's TRUE Champion</div>
+      <div class="lbl">Stage ${D.stage_mvp.stage}: America's TRUE Champion</div>
       <div class="val">${mvp?mvp.emoji:''} ${D.stage_mvp.name} <small>· robbed at ${ord(D.stage_mvp.rank)} overall</small></div></div></div>`;
 document.getElementById('context').append(el(leaderCard), el(mvpCard));
 
@@ -341,7 +341,7 @@ D.americans.forEach((a,i)=>{
       <div class="pem">${a.emoji}</div>
       <div><div class="pname">${a.name}<span class="badges">${badges}</span></div>
         <div class="pmeta">${a.city}, ${a.state} · ${a.team}</div></div>
-      <div class="pright"><div class="pgap">${a.us_gap==='—'?'👑 AMERICA #1':a.us_gap}</div>
+      <div class="pright"><div class="pgap">${a.us_gap==='-'?'👑 AMERICA #1':a.us_gap}</div>
         <div class="pstage">GC <b>${ord(a.gc_rank)}</b> vs the world · stage ${ord(a.stage_rank)}</div></div>
     </div>`));
 });
@@ -350,7 +350,7 @@ D.americans.forEach((a,i)=>{
 function renderTeams(g){
   const box = document.getElementById('teams'); box.innerHTML='';
   const rows = D.teams[g]; const max = Math.max(...rows.map(r=>r.per_rider),1);
-  box.appendChild(el(`<div class="teamhint">Scored by <b>points per rider</b> (total ÷ riders) — so a lone hero isn't punished for having no teammates.</div>`));
+  box.appendChild(el(`<div class="teamhint">Scored by <b>points per rider</b> (total ÷ riders), so a lone hero isn't punished for having no teammates.</div>`));
   rows.forEach((t)=>{
     const mem = t.members.map(m=>m.emoji).join('');
     box.appendChild(el(`
@@ -362,8 +362,8 @@ function renderTeams(g){
       </div>`));
   });
   const note = {
-    state:'Arizona and Colorado each field two riders — a glorious 2-on-2 civil war for freedom.',
-    region:'Every last American is a Westerner. The East, Midwest and South remain proudly winless (0 riders — freedom is a frontier sport).',
+    state:'Arizona and Colorado each field two riders: a glorious 2-on-2 civil war for freedom.',
+    region:'Every last American is a Westerner. The East, Midwest and South remain proudly winless (0 riders, freedom is a frontier sport).',
     hometown:'Durango, Colorado starts TWO men. The greatest cycling town in the greatest nation on Earth.'}[g];
   box.appendChild(el(`<div class="teamnote">★ ${note}</div>`));
 }
@@ -380,7 +380,7 @@ const tl = document.getElementById('timeline');
 D.timeline.forEach(s=>{
   const m = byBib[s.mvp_bib];
   const usWon = s.mvp_rank === 1;
-  const sub = s.mvp_rank ? (usWon ? ord(s.mvp_rank)+' — AN ACTUAL WIN 🎉' : ord(s.mvp_rank)+' "officially"') : '—';
+  const sub = s.mvp_rank ? (usWon ? ord(s.mvp_rank)+': AN ACTUAL WIN 🎉' : ord(s.mvp_rank)+' "officially"') : '-';
   const fake = usWon
     ? `<div class="fake"><div class="cap">🏆 The "official" winner</div>
         <div class="nm" style="text-decoration:none;color:#3a3a3a">Also ${s.mvp_name}. Deal with it.</div></div>`
@@ -409,9 +409,9 @@ D.riders.forEach(r=>{
     </div>`));
 });
 
-// nation standings — pick your metric, pick your cope
+// nation standings: pick your metric, pick your cope
 document.getElementById('worldnote').innerHTML =
-  `America is, and always shall be, <b>#1 in our hearts</b> 🇺🇸🦅 — a metric we invented, own, and shamelessly rig. `+
+  `America is, and always shall be, <b>#1 in our hearts</b> 🇺🇸🦅: a metric we invented, own, and shamelessly rig. `+
   `By every metric we did <i>not</i> invent, results vary. Pick your preferred way of counting below:`;
 const NAT_METRICS = {
   best: {label:'Best Rider', col:'GC pos', sort:(a,b)=>a.best_rank-b.best_rank,
@@ -419,20 +419,20 @@ const NAT_METRICS = {
     explain:'each nation ranked by its single best-placed rider on the overall classification'},
   avg: {label:'Avg GC Time', col:'Avg time', sort:(a,b)=>a.avg_time_s-b.avg_time_s,
     val:c=>c.avg_time,
-    explain:'ranked by the <i>average</i> overall time of every rider a nation brought — a big squad of knackered domestiques drags you way down'},
+    explain:'ranked by the <i>average</i> overall time of every rider a nation brought: a big squad of knackered domestiques drags you way down'},
   wins: {label:'Stage Wins', col:'Wins', sort:(a,b)=>(b.stage_wins-a.stage_wins)||(a.best_rank-b.best_rank),
     val:c=>c.stage_wins,
-    explain:'ranked by actual stage wins — the only statistic with any dignity, which is precisely why we don’t like to bring it up'},
+    explain:'ranked by actual stage wins, the only statistic with any dignity, which is precisely why we don’t like to bring it up'},
   squad: {label:'Squad Size', col:'Riders', sort:(a,b)=>(b.riders-a.riders)||(a.best_rank-b.best_rank),
     val:c=>c.riders,
-    explain:'ranked by sheer manpower — America heroically sent six; some nations sent an entire army'},
+    explain:'ranked by sheer manpower: America heroically sent six; some nations sent an entire army'},
 };
 function renderNations(m){
   const cfg = NAT_METRICS[m];
   const rows = [...D.countries].sort(cfg.sort);
   const usaRank = rows.findIndex(c=>c.is_usa)+1;
   const posTxt = usaRank===1
-    ? `right at the <b>top</b> — as it should be, and for once we won't argue with the math`
+    ? `right at the <b>top</b>, as it should be, and for once we won't argue with the math`
     : `<b>#${usaRank}</b> of ${rows.length}, behind (of all places) <b>${rows[0].name}</b>`;
   document.getElementById('natExplain').innerHTML =
     `<b>${cfg.label}:</b> ${cfg.explain}. On this one, America sits ${posTxt}.`;
@@ -455,7 +455,7 @@ document.getElementById('natToggle').addEventListener('click',e=>{
 });
 renderNations('best');
 
-// visitor counter — REAL global hit counter (Abacus), local fallback.
+// visitor counter: REAL global hit counter (Abacus), local fallback.
 // Vanity-seeded with a 1,776,000 head start (very GeoCities; 1776 heritage),
 // but every real page load still increments it.
 const VC_BASE = 1776000;
@@ -479,11 +479,11 @@ fetch('https://abacus.jasoncameron.dev/hit/tour-de-france-de-america/visits')
   .then(r=>r.json()).then(d=>{ if(d&&typeof d.value==='number') setVisits(VC_BASE+d.value); })
   .catch(()=>{ /* offline: keep the local fallback number */ });
 
-// ===== THE EAGLE OF DURANGO — synthesized red-tailed hawk scream =====
+// ===== THE EAGLE OF DURANGO: synthesized red-tailed hawk scream =====
 // ===== THE EAGLE OF DURANGO =====
 // Primary: the real screech recording (web/eagle-screech.mp3).
 // Fallback: a synthesized red-tailed-hawk scream (broadband noise + swept
-// formants + rasp) if the file can't play — keeps it working offline.
+// formants + rasp) if the file can't play, keeps it working offline.
 let AC;
 const eagleAudio = new Audio('eagle-screech.mp3?v=' + Date.now());
 eagleAudio.preload = 'auto'; eagleAudio.volume = 0.9;
@@ -495,7 +495,7 @@ function synthScream(){
     const DUR = 2.2 + Math.random()*0.35;      // natural variation
     const top = 3400 + Math.random()*500;      // peak brightness of this cry
 
-    // master envelope — the overall arc of the scream
+    // master envelope: the overall arc of the scream
     const master = ctx.createGain(); master.connect(ctx.destination);
     const g = master.gain;
     g.setValueAtTime(0.0001, t0);
@@ -505,7 +505,7 @@ function synthScream(){
     g.linearRampToValueAtTime(0.6, t0+DUR*0.82);
     g.exponentialRampToValueAtTime(0.0001, t0+DUR); // long trailing fade
 
-    // rasp — a fast amplitude flutter (tremolo) over everything; it slows as
+    // rasp: a fast amplitude flutter (tremolo) over everything; it slows as
     // the pitch falls, like the real call
     const trem = ctx.createGain(); trem.gain.value = 0.6; trem.connect(master);
     const lfo = ctx.createOscillator(); lfo.type='sawtooth';

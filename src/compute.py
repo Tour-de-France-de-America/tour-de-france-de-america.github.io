@@ -68,7 +68,7 @@ def fmt_gap(s):
     if s is None:
         return "-"
     if s == 0:
-        return "—"
+        return "-"
     m, sec = divmod(int(s), 60)
     h, m = divmod(m, 60)
     if h:
@@ -335,7 +335,7 @@ def build():
             "total_stages": 21,
             "field_size": len(stages[-1]["result"]),
             "n_americans": len(americans),
-            "note": "GC reconstructed from official letour.fr stage times (time − bonus + penalty).",
+            "note": "GC reconstructed from official letour.fr stage times (time - bonus + penalty).",
         },
         "gc_leader": {
             "name": leader_row["name"] if leader_row else "-",

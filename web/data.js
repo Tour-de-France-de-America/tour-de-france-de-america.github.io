@@ -5,7 +5,7 @@ window.TDFDA = {
     "total_stages": 21,
     "field_size": 181,
     "n_americans": 6,
-    "note": "GC reconstructed from official letour.fr stage times (time − bonus + penalty)."
+    "note": "GC reconstructed from official letour.fr stage times (time - bonus + penalty)."
   },
   "gc_leader": {
     "name": "T. TRÆEN",
@@ -27,7 +27,7 @@ window.TDFDA = {
           "emoji": "🐻",
           "team": "EF Education-EasyPost",
           "value": "16h32'35\"",
-          "gap": "—"
+          "gap": "-"
         },
         {
           "bib": 34,
@@ -198,7 +198,7 @@ window.TDFDA = {
           "emoji": "🇺🇸",
           "team": "Lidl-Trek",
           "value": "16h48'40\"",
-          "gap": "—"
+          "gap": "-"
         },
         {
           "bib": 58,
@@ -233,7 +233,7 @@ window.TDFDA = {
       "gc_rank": 2,
       "gc_time": "16h32'35\"",
       "gc_gap": "+28\"",
-      "us_gap": "—",
+      "us_gap": "-",
       "stage_rank": 29,
       "green_pts": 27.5,
       "kom_pts": 21.0
@@ -308,7 +308,7 @@ window.TDFDA = {
       "state_name": "Idaho",
       "region": "Northwest",
       "type": "All-rounder / GC support",
-      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise — the strongest US stage-win threat.",
+      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. The strongest US stage-win threat.",
       "is_young": false,
       "gc_rank": 41,
       "gc_time": "16h51'19\"",
@@ -972,7 +972,7 @@ window.TDFDA = {
       "birthdate": "1999-12-01",
       "type": "All-rounder / GC support",
       "emoji": "🥔",
-      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise — the strongest US stage-win threat."
+      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. The strongest US stage-win threat."
     },
     {
       "bib": 17,
