@@ -1,5 +1,7 @@
 # 🇺🇸 Tour de France de America (TDFdA)
 
+**Live: https://tour-de-france-de-america.github.io/** — rebuilt automatically during the race.
+
 A tongue-in-cheek tracker for the only riders who matter at the Tour de France:
 the Americans. It reruns the Tour as a private race-within-the-race among the
 US contingent, hands out four American jerseys, and pits them against each other
@@ -11,10 +13,10 @@ Kuss (Durango CO), Simmons (Durango CO), Sean Quinn (Los Angeles CA), Jorgenson 
 ## The American jerseys
 | Jersey | Meaning |
 |---|---|
-| 🟡 **Le Maillot June** | Best American on GC (authentic — from real stage times) |
-| 🟢 **American Green** | America's points/sprint leader (order-among-Americans, sprint stages weighted) |
-| 🔴 **American Polka Dot** | America's climber (order-among-Americans, climbing stages weighted) |
-| ⚪ **American White** | Best *young* American (born ≥ 2001) on GC |
+| 🟡 **Le Maillot June des États-Unis** | Best American on GC (authentic — from real stage times) |
+| 🟢 **Le Maillot Vert des Patriotes** | America's points/sprint leader (order-among-Americans, sprint stages weighted) |
+| 🔴 **Le Maillot à Pois de la Liberté** | America's climber (order-among-Americans, climbing stages weighted) |
+| ⚪ **Le Maillot Blanc des Jeunes Aigles** | Best *young* American (born ≥ 2001) on GC |
 | 🎖️ **Stage MVP** | Top-finishing American each day |
 
 Each jersey shows a **"held for N stages"** streak.
@@ -41,10 +43,14 @@ reconciles correctly against the real yellow jersey).
 open web/index.html               # or refresh the browser tab
 ```
 
-## Daily automation (planned)
-Free path: a GitHub Actions cron (~20:00 CET, after stages settle) runs `run.sh`,
-commits `web/data.js`, and GitHub Pages serves `web/`. $0/month. letour.fr is
-cloud-accessible, so the same pipeline runs identically on the runner.
+## Hosting & automation (live)
+Hosted free on **GitHub Pages** at https://tour-de-france-de-america.github.io/.
+`.github/workflows/deploy.yml` runs on a schedule — **18:00 & 20:30 CEST** (after
+each stage finishes, then again once the jury settles results) — plus a manual
+"Run workflow" button. Each run fetches letour.fr, recomputes, and deploys `web/`
+straight to Pages (no secrets, nothing committed back). $0/month.
+
+To force a refresh manually: `gh workflow run deploy.yml` (or the Actions tab).
 
 ## Maintenance
 - **Stage profiles** live in `data/roster.json` under `stage_profiles`
