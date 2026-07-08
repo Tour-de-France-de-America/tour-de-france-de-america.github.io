@@ -68,6 +68,15 @@
   @keyframes blink{50%{opacity:0}}
   .new{color:var(--red);font-family:"Comic Sans MS",cursive;font-weight:bold;font-size:12px;vertical-align:super}
 
+  /* jukebox — background music toggle */
+  .jukebox{margin:18px 0 2px}
+  .songbtn{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-weight:bold;font-size:18px;cursor:pointer;color:#08205e;
+    padding:11px 20px;border:5px outset #7aa7ff;border-radius:4px;
+    background:linear-gradient(#dbe6ff,#8fb2ff 55%,#5f86e6);box-shadow:4px 4px 0 rgba(0,0,0,.4);text-shadow:0 1px 0 #eaf1ff}
+  .songbtn:active{border-style:inset;box-shadow:1px 1px 0 rgba(0,0,0,.4);transform:translate(2px,2px)}
+  .songbtn.playing{background:linear-gradient(#ffd0d6,#ef8a97 55%,#d94b5e);border-color:#ff9aa7;color:#4a0009}
+  .songcap{font-size:12px;color:var(--faint);margin:6px auto 0;font-style:italic;max-width:560px}
+
   /* section headlines */
   .section-title{margin:24px -20px 12px;padding:7px 14px;
     background:linear-gradient(var(--blue),#2a2950);color:#fff;
@@ -228,6 +237,11 @@
 
   <div class="section-title" id="pelotonTitle">The Only Six Men In France</div>
   <div class="peloton" id="peloton"></div>
+
+  <center class="jukebox">
+    <button class="songbtn" id="songBtn">🎸 PLAY "FORTUNATE SON" 🎸</button>
+    <div class="songcap" id="songCap">Set the mood for maximum patriotism. Please do not, under any circumstances, listen to the lyrics.</div>
+  </center>
 
   <div class="section-title">Team USA Power Rankings
     <span class="toggle" id="teamToggle">
@@ -560,6 +574,27 @@ function screamEagle(){
   }catch(e){ synthScream(); }
 }
 document.getElementById('eagleBtn').addEventListener('click', screamEagle);
+
+// ===== BACKGROUND MUSIC: "Fortunate Son" (loops while you browse) =====
+// It is, famously, an anti-establishment protest song. Using it as triumphant
+// patriotic background music is the joke. As is tradition.
+const anthem = new Audio('fortunate-son.mp3?v=' + Date.now());
+anthem.loop = true; anthem.volume = 0.55;
+const songBtn = document.getElementById('songBtn');
+const songCap = document.getElementById('songCap');
+songBtn.addEventListener('click', function(){
+  if (anthem.paused){
+    anthem.play().catch(function(){});
+    songBtn.textContent = '⏹ SILENCE THE ANTHEM';
+    songBtn.classList.add('playing');
+    songCap.textContent = '♪ Now blasting, uncritically. Somewhere, John Fogerty is sighing. ♪';
+  } else {
+    anthem.pause();
+    songBtn.textContent = '🎸 PLAY "FORTUNATE SON" 🎸';
+    songBtn.classList.remove('playing');
+    songCap.textContent = 'Set the mood for maximum patriotism. Please do not, under any circumstances, listen to the lyrics.';
+  }
+});
 </script>
 </body>
 </html>
