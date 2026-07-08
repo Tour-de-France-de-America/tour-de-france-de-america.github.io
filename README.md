@@ -53,10 +53,10 @@ straight to Pages (no secrets, nothing committed back). $0/month.
 To force a refresh manually: `gh workflow run deploy.yml` (or the Actions tab).
 
 ## Maintenance
-- **Stage profiles** live in `data/roster.json` under `stage_profiles`
-  (`tt|flat|hilly|mountain`). They only affect Green-vs-Polka weighting; unknown
-  stages default to `flat`. Add each stage's profile from the roadbook for best
-  results.
+- **Stage profiles** (`tt|flat|hilly|mountain`, in `data/roster.json`) are
+  scraped for all 21 stages up front by `python3 src/stage_profiles.py` (pulls
+  letour.fr/en/overall-route). The route is fixed once the race starts, so this
+  is a one-time run — no per-stage edits. They only affect Green-vs-Polka weighting.
 - Roster hometowns/birthdates are curated in `data/roster.json`.
 
 *Not affiliated with A.S.O. Purely for fun.*
