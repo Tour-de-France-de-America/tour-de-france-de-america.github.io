@@ -288,7 +288,7 @@ window.TDFDA = {
       "state_name": "Colorado",
       "region": "Rockies",
       "type": "High-mountain climber",
-      "blurb": "The most proven American Grand Tour climbing domestique. Saves his best for the high mountains.",
+      "blurb": "Hot off a stage win at the Giro d'Italia. The most proven American Grand Tour climbing domestique, and he saves his best for the high mountains.",
       "is_young": false,
       "gc_rank": 40,
       "gc_time": "16h50'17\"",
@@ -308,7 +308,7 @@ window.TDFDA = {
       "state_name": "Idaho",
       "region": "Northwest",
       "type": "All-rounder / GC support",
-      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. The strongest US stage-win threat.",
+      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. A frequent star of teammate Victor Campenaerts' vlogs.",
       "is_young": false,
       "gc_rank": 41,
       "gc_time": "16h51'19\"",
@@ -973,7 +973,7 @@ window.TDFDA = {
       "birthdate": "1999-12-01",
       "type": "All-rounder / GC support",
       "emoji": "🥔",
-      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. The strongest US stage-win threat.",
+      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise. A frequent star of teammate Victor Campenaerts' vlogs.",
       "strava": "https://www.strava.com/pros/557974"
     },
     {
@@ -988,7 +988,7 @@ window.TDFDA = {
       "birthdate": "1994-09-13",
       "type": "High-mountain climber",
       "emoji": "⛰️",
-      "blurb": "The most proven American Grand Tour climbing domestique. Saves his best for the high mountains.",
+      "blurb": "Hot off a stage win at the Giro d'Italia. The most proven American Grand Tour climbing domestique, and he saves his best for the high mountains.",
       "strava": "https://www.strava.com/pros/254096"
     },
     {
