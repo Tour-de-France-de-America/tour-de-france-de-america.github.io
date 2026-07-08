@@ -1,0 +1,109 @@
+{
+  "race": {
+    "name": "Tour de France 2026",
+    "year": 2026,
+    "letour_slug": "stage",
+    "youth_cutoff_year": 2001,
+    "note": "Riders born on or after Jan 1 of youth_cutoff_year are white-jersey (young rider) eligible."
+  },
+  "riders": [
+    {
+      "bib": 4,
+      "name": "Brandon McNulty",
+      "surname_key": "MCNULTY",
+      "team": "UAE Team Emirates-XRG",
+      "city": "Phoenix",
+      "state": "AZ",
+      "state_name": "Arizona",
+      "region": "Southwest",
+      "birthdate": "1998-04-02",
+      "type": "TT / Climbing domestique",
+      "emoji": "🏹",
+      "blurb": "Pogačar's mountain-and-TT bodyguard. One of the most complete support riders in the race."
+    },
+    {
+      "bib": 16,
+      "name": "Matteo Jorgenson",
+      "surname_key": "JORGENSON",
+      "team": "Team Visma | Lease a Bike",
+      "city": "Boise",
+      "state": "ID",
+      "state_name": "Idaho",
+      "region": "Northwest",
+      "birthdate": "1999-12-01",
+      "type": "All-rounder / GC support",
+      "emoji": "🥔",
+      "blurb": "Visma road captain for Vingegaard. Born in Walnut Creek CA, raised in Boise — the strongest US stage-win threat."
+    },
+    {
+      "bib": 17,
+      "name": "Sepp Kuss",
+      "surname_key": "KUSS",
+      "team": "Team Visma | Lease a Bike",
+      "city": "Durango",
+      "state": "CO",
+      "state_name": "Colorado",
+      "region": "Rockies",
+      "birthdate": "1994-09-13",
+      "type": "High-mountain climber",
+      "emoji": "⛰️",
+      "blurb": "The most proven American Grand Tour climbing domestique. Saves his best for the high mountains."
+    },
+    {
+      "bib": 34,
+      "name": "Quinn Simmons",
+      "surname_key": "SIMMONS",
+      "team": "Lidl-Trek",
+      "city": "Durango",
+      "state": "CO",
+      "state_name": "Colorado",
+      "region": "Rockies",
+      "birthdate": "2001-05-08",
+      "type": "Breakaway / US Champion",
+      "emoji": "🇺🇸",
+      "blurb": "US national road champion. Aggressive from the gun; took 2nd on Stage 4 in a Lidl-Trek one-two."
+    },
+    {
+      "bib": 45,
+      "name": "Sean Quinn",
+      "surname_key": "QUINN",
+      "team": "EF Education-EasyPost",
+      "city": "Los Angeles",
+      "state": "CA",
+      "state_name": "California",
+      "region": "Pacific",
+      "birthdate": "2000-05-05",
+      "type": "Stage-hunter / all-rounder",
+      "emoji": "🐻",
+      "blurb": "Not to be confused with Quinn Simmons. Rode into the Stage 4 break and vaulted to 2nd overall."
+    },
+    {
+      "bib": 58,
+      "name": "Matthew Riccitello",
+      "surname_key": "RICCITELLO",
+      "team": "Decathlon-CMA CGM",
+      "city": "Tucson",
+      "state": "AZ",
+      "state_name": "Arizona",
+      "region": "Southwest",
+      "birthdate": "2001-11-19",
+      "type": "Young climber",
+      "emoji": "🌵",
+      "blurb": "Tour debutant and a genuine young GC prospect. The big mountains are his terrain."
+    }
+  ],
+  "regions": {
+    "Pacific": {"emoji": "🐻", "states": ["CA"], "label": "Pacific"},
+    "Southwest": {"emoji": "🌵", "states": ["AZ"], "label": "Southwest"},
+    "Rockies": {"emoji": "⛰️", "states": ["CO"], "label": "Rockies"},
+    "Northwest": {"emoji": "🌲", "states": ["ID"], "label": "Northwest"}
+  },
+  "stage_profiles": {
+    "1": "tt",
+    "2": "hilly",
+    "3": "mountain",
+    "4": "hilly",
+    "5": "flat",
+    "_note": "tt|flat|hilly|mountain. Used to weight the Green (sprint) and Polka-Dot (climbing) American classifications. Refine per the official roadbook."
+  }
+}

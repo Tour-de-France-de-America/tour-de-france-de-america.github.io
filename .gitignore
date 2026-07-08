@@ -1,0 +1,10 @@
+# local editor / harness settings (not needed on the site)
+.claude/
+
+# regenerated every run by src/fetch.py
+data/cache/
+
+# python + macOS cruft
+__pycache__/
+*.pyc
+.DS_Store

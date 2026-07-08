@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>*~* TOUR DE FRANCE de AMERICA *~*</title>
+<style>
+  /* ===================================================================
+     TOUR DE FRANCE de AMERICA — served fresh from 1999.
+     Best viewed in Netscape Navigator at 800x600.
+     =================================================================== */
+  :root{
+    --red:#B42033; --silver:#CECECE; --white:#FEFEFE; --blue:#3C3B6E;
+    --j-yellow:#f4d03f; --j-green:#27c06a;
+    --paper:#fffdf2; --ink:#111; --dim:#3a3a3a; --faint:#6a6a6a;
+    --link:#0000 cc;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);font-family:"Times New Roman",Times,Georgia,serif;font-size:16px;line-height:1.4;
+    background-color:#00002e;
+    background-image:
+      radial-gradient(1.4px 1.4px at 24px 30px,#ffffff,transparent),
+      radial-gradient(1.4px 1.4px at 88px 96px,#bfe0ff,transparent),
+      radial-gradient(1px 1px at 140px 54px,#ffffff,transparent),
+      radial-gradient(1.6px 1.6px at 176px 128px,#fff6c8,transparent),
+      radial-gradient(1px 1px at 50px 150px,#ffffff,transparent);
+    background-size:200px 170px}
+
+  /* centered "table" content column, classic web 1.0 */
+  .wrap{max-width:900px;margin:16px auto;background:var(--paper);
+    border:5px ridge #b9b9c9;padding:0 20px 26px;box-shadow:0 0 0 2px #000, 8px 8px 0 rgba(0,0,0,.4)}
+
+  .ribbon{height:12px;margin:0 -20px 0;
+    background:repeating-linear-gradient(90deg,var(--red) 0 40px,#fff 40px 80px,var(--blue) 80px 120px)}
+
+  center{display:block}
+  .eyebrow{font-family:"Courier New",monospace;font-weight:bold;color:var(--red);font-size:12px;
+    letter-spacing:.04em;text-transform:uppercase;margin-top:14px}
+  h1.mast{margin:4px 0 2px;font-family:Impact,"Haettenschweiler","Arial Narrow Bold",sans-serif;
+    font-weight:normal;text-transform:uppercase;letter-spacing:-1px;line-height:.92;
+    font-size:56px;color:var(--blue);text-shadow:2px 2px 0 #bbb}
+  h1.mast .us{color:var(--red)}
+  .submast{font-style:italic;font-size:16px;color:var(--dim);max-width:680px;margin:6px auto 2px}
+  .stagepill{display:inline-block;margin:10px 0 4px;background:#000;color:#ffd400;
+    font-family:"Courier New",monospace;font-weight:bold;font-size:14px;padding:5px 14px;border:3px outset #666}
+  .stagepill b{color:#fff}
+
+  /* scrolling DRUDGE ticker */
+  marquee.ticker{display:block;margin:12px -20px 4px;background:#000;color:#12ff5a;
+    font-family:"Courier New",monospace;font-weight:bold;font-size:14px;padding:6px 0;border-top:2px solid var(--red);border-bottom:2px solid var(--blue)}
+  marquee.ticker .hot{color:#ff3b3b}
+  marquee.ticker .st{color:#ffd400}
+
+  /* THE EAGLE BUTTON */
+  .eaglewrap{margin:16px 0 4px}
+  .eaglebtn{font-family:"Comic Sans MS","Chalkboard SE",cursive;font-weight:bold;font-size:20px;color:#5a1500;cursor:pointer;
+    padding:12px 22px;border:5px outset #ffcf3f;border-radius:4px;
+    background:linear-gradient(#ffe680,#f4b400 55%,#d98600);box-shadow:4px 4px 0 rgba(0,0,0,.45);text-shadow:0 1px 0 #fff7cf}
+  .eaglebtn:active{border-style:inset;box-shadow:1px 1px 0 rgba(0,0,0,.45);transform:translate(2px,2px)}
+  .eaglecap{font-size:12px;color:var(--faint);margin-top:6px;font-style:italic}
+  .scream{font-family:Impact,sans-serif;color:var(--red);font-size:0;min-height:40px;text-align:center;text-shadow:2px 2px 0 #ffd400;letter-spacing:2px}
+  .scream.go{font-size:38px;animation:scr 2100ms ease-out}
+  @keyframes scr{0%{transform:scale(.3) rotate(-4deg);opacity:0}9%{transform:scale(1.25);opacity:1}72%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:0}}
+
+  hr{border:0;border-top:4px double #000;margin:22px -20px 16px}
+
+  .blink{animation:blink 1.1s step-start infinite}
+  @keyframes blink{50%{opacity:0}}
+  .new{color:var(--red);font-family:"Comic Sans MS",cursive;font-weight:bold;font-size:12px;vertical-align:super}
+
+  /* section headlines */
+  .section-title{margin:24px -20px 12px;padding:7px 14px;
+    background:linear-gradient(var(--blue),#2a2950);color:#fff;
+    font-family:Impact,"Arial Narrow Bold",sans-serif;letter-spacing:.03em;font-size:19px;text-transform:uppercase;
+    border-top:2px solid #fff;border-bottom:3px solid var(--red);
+    display:flex;align-items:center;gap:9px}
+  .section-title:before{content:"★";color:#ffd400}
+  .section-title em{color:#ffd400;font-style:normal}
+
+  /* jerseys */
+  .jerseys{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .jcard{background:#fff;border:3px outset #cfcfcf;padding:0;position:relative}
+  .jcard .jhead{padding:8px 10px;border-bottom:2px solid #000;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .jcard.yellow .jhead{background:var(--j-yellow)} .jcard.green .jhead{background:var(--j-green);color:#fff}
+  .jcard.polka .jhead{background:repeating-linear-gradient(45deg,var(--red) 0 7px,#fff 7px 14px)}
+  .jcard.white .jhead{background:#eee}
+  .jname{font-family:Impact,sans-serif;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:#000}
+  .jsub{font-size:11px;color:#222;font-style:italic}
+  .jicon{font-size:20px}
+  .jbody{padding:9px 10px}
+  .jholder{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+  .jholder .em{font-size:26px}
+  .jholder .nm{font-weight:bold;font-size:17px;font-family:Georgia,serif}
+  .jstreak{font-size:11px;color:var(--dim);margin-bottom:7px}
+  .jstreak b{color:var(--red);font-size:13px}
+  .mini{list-style:none;margin:6px 0 0;padding:7px 0 0;border-top:1px dotted #999}
+  .mini li{display:flex;justify-content:space-between;gap:6px;font-size:12px;color:var(--dim);padding:1px 0}
+  .mini li.top{color:#000;font-weight:bold}
+  .mini .v{color:var(--faint)}
+
+  /* context */
+  .context{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .ccard{padding:11px 14px;display:flex;align-items:center;gap:13px;background:#fff;border:3px outset #cfcfcf}
+  .ccard.foreign{border-color:var(--blue)} .ccard.hero{border-color:var(--red);background:#fff7f2}
+  .ccard .big{font-size:28px}
+  .ccard .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--faint);font-weight:bold;font-family:Arial,sans-serif}
+  .ccard .val{font-weight:bold;font-size:17px;font-family:Georgia,serif}
+  .ccard .val small{font-weight:normal;color:var(--dim);font-size:12.5px;font-style:italic}
+
+  /* peloton + nation tables share the retro look */
+  .peloton,.ctable{border:3px inset #cfcfcf;background:#fff}
+  .prow{display:grid;grid-template-columns:44px 34px 1fr auto;align-items:center;gap:12px;
+    padding:9px 12px;border-bottom:1px solid #cbcbcb}
+  .prow:nth-child(even){background:#eef0ff}
+  .prow:last-child{border-bottom:0}
+  .prow.lead{background:#fff3bf}
+  .ppos{font-family:Impact,sans-serif;font-size:20px;text-align:center;color:var(--faint)}
+  .prow.lead .ppos{color:var(--red)}
+  .pem{font-size:23px;text-align:center}
+  .pname{font-weight:bold;font-size:16px;font-family:Georgia,serif}
+  .pmeta{font-size:11.5px;color:var(--faint)}
+  .badges{display:inline-flex;gap:4px;margin-left:7px;vertical-align:middle}
+  .b{display:inline-block;width:15px;height:15px;border:1px solid #000}
+  .b.yellow{background:var(--j-yellow)} .b.green{background:var(--j-green)}
+  .b.white{background:#fff} .b.polka{background:repeating-linear-gradient(45deg,var(--red) 0 3px,#fff 3px 6px)}
+  .pright{text-align:right}
+  .pgap{font-weight:bold;font-family:"Courier New",monospace;font-size:15px}
+  .prow.lead .pgap{color:var(--red)}
+  .pstage{font-size:11px;color:var(--faint)}
+  .pstage b{color:var(--dim)}
+
+  /* toggles = win95 buttons */
+  .toggle{display:inline-flex;gap:4px;margin-left:auto}
+  .toggle button{font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#000;cursor:pointer;
+    padding:4px 10px;background:#d6d6d6;border:2px outset #fff}
+  .toggle button.on{border-style:inset;background:#fff3bf;color:var(--red)}
+
+  /* teams */
+  .teamrow{display:grid;grid-template-columns:170px 1fr 62px;align-items:center;gap:12px;margin:9px 0}
+  .tlabel{display:flex;align-items:center;gap:8px;font-weight:bold;font-size:15px;font-family:Georgia,serif}
+  .tlabel .em{font-size:19px}
+  .tlabel .mem{font-size:10.5px;color:var(--faint);font-weight:normal;font-family:Arial,sans-serif}
+  .bar{height:20px;min-width:8px;border:2px solid #000;
+    background:repeating-linear-gradient(90deg,var(--blue) 0 14px,#fff 14px 20px,var(--red) 20px 34px)}
+  .tpts{text-align:right;font-weight:bold;font-family:"Courier New",monospace;font-size:17px;color:var(--red)}
+  .tpts .per{display:block;font-size:9px;color:var(--faint);font-weight:normal}
+  .teamhint,.worldnote,.teamnote{font-size:13px;color:var(--dim);margin:6px 0 10px}
+  .teamnote{font-style:italic;border-left:4px solid var(--red);padding-left:9px}
+  .worldnote b,.teamhint b{color:#000}
+
+  /* timeline */
+  .timeline{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+  .tchip{flex:0 0 auto;width:196px;background:#fff;border:3px outset #cfcfcf}
+  .tchip .st{font-family:Arial,sans-serif;font-size:11px;color:#fff;background:var(--blue);padding:6px 11px;
+    text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;font-weight:bold}
+  .real{padding:9px 11px;background:#fff7f2;border-bottom:1px dashed #bbb}
+  .real .cap{font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:.05em;color:var(--red);text-transform:uppercase}
+  .real .nm{font-weight:bold;font-size:16px;font-family:Georgia,serif;margin-top:2px}
+  .real .sub{font-size:11px;color:var(--dim);margin-top:2px}
+  .fake{padding:8px 11px}
+  .fake .cap{font-family:Arial,sans-serif;font-size:9.5px;font-weight:bold;color:var(--faint);text-transform:uppercase}
+  .fake .nm{font-size:13px;color:var(--faint);margin-top:2px;text-decoration:line-through;text-decoration-color:var(--red)}
+
+  /* riders */
+  .riders{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .rcard{background:#fff;border:3px outset #cfcfcf;padding:12px;position:relative}
+  .rcard:after{content:"🇺🇸";position:absolute;top:9px;right:11px;font-size:15px}
+  .rcard .rt{display:flex;align-items:center;gap:10px}
+  .rcard .rt .em{font-size:26px}
+  .rcard .rn{font-weight:bold;font-size:16px;font-family:Georgia,serif}
+  .rcard .rfrom{font-size:11.5px;color:var(--faint)}
+  .rcard .rtype{display:inline-block;margin-top:9px;font-size:11px;color:#fff;background:var(--blue);padding:2px 8px;font-family:Arial,sans-serif;font-weight:bold}
+  .rcard .rbl{font-size:12.5px;color:var(--dim);margin-top:8px}
+
+  /* nation table */
+  .crow{display:grid;grid-template-columns:40px 1fr 120px;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid #cbcbcb;font-size:14px}
+  .crow:nth-child(even){background:#eef0ff}
+  .crow:last-child{border-bottom:0}
+  .crow.head{background:var(--blue);color:#fff;font-family:Arial,sans-serif;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;font-weight:bold}
+  .crow.head .cval{text-align:right}
+  .crow.usa{background:#fff3bf}
+  .crank{font-family:Impact,sans-serif;font-size:17px;color:var(--faint);text-align:center}
+  .crow.usa .crank{color:var(--red)}
+  .cname{display:flex;align-items:center;gap:8px;font-weight:bold;overflow:hidden;font-family:Georgia,serif}
+  .cname .fl{font-size:18px}
+  .cname .csub{font-size:11px;color:var(--faint);font-weight:normal;font-family:Arial,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cval{text-align:right;font-family:"Courier New",monospace;font-weight:bold}
+  .crow.usa .cval{color:var(--red)}
+
+  /* footer */
+  footer{margin-top:26px;text-align:center;font-size:13px;color:var(--dim)}
+  .counter{display:inline-block;background:#000;color:#12ff5a;font-family:"Courier New",monospace;font-weight:bold;
+    font-size:16px;letter-spacing:3px;padding:4px 10px;border:3px inset #666;margin-bottom:10px}
+  footer .fine{display:block;margin-top:9px;color:var(--faint);font-size:11px;font-style:italic}
+  footer a{color:var(--link)}
+
+  @media(max-width:760px){
+    h1.mast{font-size:38px}
+    .jerseys{grid-template-columns:repeat(2,1fr)} .riders{grid-template-columns:1fr}
+    .context{grid-template-columns:1fr} .teamrow{grid-template-columns:120px 1fr 50px}
+    .section-title{font-size:16px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="ribbon"></div>
+  <center>
+    <div class="eyebrow" id="kicker">AMERICA FIRST &middot; EVERYONE ELSE SECOND</div>
+    <h1 class="mast">TOUR DE FRANCE <span class="us">de AMERICA</span></h1>
+    <div class="submast" id="tagline">The ONLY Tour de France coverage that puts America first.</div>
+    <div class="stagepill" id="stagepill">Loading&hellip;</div>
+  </center>
+
+  <marquee class="ticker" id="ticker" scrollamount="6" behavior="scroll">🇺🇸 U S A &middot; U S A &middot; U S A 🇺🇸</marquee>
+
+  <center class="eaglewrap">
+    <button class="eaglebtn" id="eagleBtn">🦅 SUMMON THE EAGLE OF DURANGO 🦅</button>
+    <span class="new blink">NEW!</span>
+    <div class="eaglecap">Official cry of Sepp Kuss, the Eagle of Durango. Turn your speakers UP. 🔊 (it's technically a red-tailed hawk. it always is.)</div>
+    <div id="scream" class="scream" aria-hidden="true"></div>
+  </center>
+
+  <hr>
+  <div class="section-title">The Four Jerseys That Actually Matter</div>
+  <div class="jerseys" id="jerseys"></div>
+  <div class="context" id="context"></div>
+
+  <div class="section-title" id="pelotonTitle">The Only Six Men In France</div>
+  <div class="peloton" id="peloton"></div>
+
+  <div class="section-title">Team USA Power Rankings
+    <span class="toggle" id="teamToggle">
+      <button data-g="state" class="on">By State</button>
+      <button data-g="region">By Region</button>
+      <button data-g="hometown">By Hometown</button>
+    </span>
+  </div>
+  <div id="teams"></div>
+
+  <div class="section-title">Who <em>Really</em> Won Each Stage</div>
+  <div class="timeline" id="timeline"></div>
+
+  <div class="section-title">Our American Heroes</div>
+  <div class="riders" id="riders"></div>
+
+  <div class="section-title">Nation Standings &mdash; If You Really Must
+    <span class="toggle" id="natToggle">
+      <button data-m="best" class="on">Best Rider</button>
+      <button data-m="avg">Avg GC Time</button>
+      <button data-m="wins">Stage Wins</button>
+      <button data-m="squad">Squad Size</button>
+    </span>
+  </div>
+  <div class="worldnote" id="worldnote"></div>
+  <div class="teamhint" id="natExplain"></div>
+  <div class="ctable" id="countries"></div>
+
+  <hr>
+  <footer id="footer"></footer>
+</div>
+
+<!-- cache-buster: always load the freshest data.js (it's rewritten daily) -->
+<script>document.write('<script src="data.js?v=' + Date.now() + '"><\/script>');</script>
+<script>
+const D = window.TDFDA;
+const byBib = Object.fromEntries(D.riders.map(r=>[r.bib,r]));
+const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild};
+function ord(n){ if(!n)return '—'; const s=['th','st','nd','rd'],v=n%100; return n+(s[(v-20)%10]||s[v]||s[0]); }
+
+const NUMW=['zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten'];
+const nw=(n)=> NUMW[n]!==undefined?NUMW[n]:n;
+
+document.getElementById('stagepill').innerHTML =
+  `STAGE <b>${D.meta.through_stage}</b> / ${D.meta.total_stages} &middot; ${D.meta.race}`;
+document.getElementById('kicker').innerHTML =
+  `🦅 AMERICA FIRST &middot; EVERYONE ELSE SECOND (THROUGH ${ord(D.meta.field_size)}) 🦅`;
+document.getElementById('tagline').innerHTML =
+  `The <b>ONLY</b> Tour de France coverage brave enough to ignore ${D.meta.field_size - D.meta.n_americans} of the riders. `+
+  `Of ${D.meta.field_size} men left in this race, <b>${nw(D.meta.n_americans)}</b> of them count.`;
+document.getElementById('pelotonTitle').textContent =
+  `The Only ${nw(D.meta.n_americans)} Men In France (Everyone Else Is Scenery)`;
+
+// DRUDGE-style scrolling ticker
+const usaBest = [...D.countries].sort((a,b)=>a.best_rank-b.best_rank).findIndex(c=>c.is_usa)+1;
+document.getElementById('ticker').innerHTML =
+  `<span class="hot">🚨 DEVELOPING 🚨</span> &nbsp; <span class="st">STAGE ${D.meta.through_stage}:</span> `+
+  `${D.stage_mvp.name.toUpperCase()} IS AMERICA'S TRUE CHAMPION &nbsp;★★★&nbsp; `+
+  `${D.jerseys.june.standings[0].name.toUpperCase()} HOLDS LE MAILLOT JUNE (${D.jerseys.june.streak} STAGES) &nbsp;★★★&nbsp; `+
+  `U.S.A. RANKED #${usaBest} IN THE WORLD, WE DEMAND A RECOUNT &nbsp;★★★&nbsp; `+
+  `SEPP KUSS: STILL THE EAGLE OF DURANGO 🦅 &nbsp;★★★&nbsp; `;
+
+// jerseys
+const jwrap = document.getElementById('jerseys');
+['june','green','kom','white'].forEach(k=>{
+  const j = D.jerseys[k];
+  const holder = j.standings.find(s=>s.bib===j.holder) || j.standings[0];
+  const mini = j.standings.slice(0,4).map((s,i)=>
+    `<li class="${i===0?'top':''}"><span>${i+1}. ${s.name}</span><span class="v">${s.value}</span></li>`).join('');
+  jwrap.appendChild(el(`
+    <div class="jcard ${j.color}">
+      <div class="jhead"><div><div class="jname">${j.label}</div><div class="jsub">${j.sub}</div></div>
+        <div class="jicon">${{yellow:'🟡',green:'🟢',polka:'🔴',white:'⚪'}[j.color]}</div></div>
+      <div class="jbody">
+        <div class="jholder"><span class="em">${holder?holder.emoji:''}</span>
+          <span class="nm">${holder?holder.name:'—'}</span></div>
+        <div class="jstreak">👑 Held for <b>${j.streak}</b> straight stage${j.streak===1?'':'s'}</div>
+        <ul class="mini">${mini}</ul>
+      </div>
+    </div>`));
+});
+
+// context
+const mvp = byBib[D.stage_mvp.bib];
+const leaderCard = D.gc_leader.is_american
+  ? `<div class="ccard hero"><span class="big">🦅</span><div>
+      <div class="lbl">An American is in yellow. As it was foretold.</div>
+      <div class="val">${D.gc_leader.name} <small>· ${D.gc_leader.team} · the natural order, restored</small></div></div></div>`
+  : `<div class="ccard foreign"><span class="big">😴</span><div>
+      <div class="lbl">Some foreigner is "in yellow" (for now)</div>
+      <div class="val">${D.gc_leader.name} <small>· ${D.gc_leader.team} · enjoy it while it lasts, pal</small></div></div></div>`;
+const wonStage = D.stage_mvp.rank === 1;
+const mvpCard = wonStage
+  ? `<div class="ccard hero"><span class="big">🏆</span><div>
+      <div class="lbl">Stage ${D.stage_mvp.stage} — AMERICA WINS. AS USUAL.</div>
+      <div class="val">${mvp?mvp.emoji:''} ${D.stage_mvp.name} <small>· first across the line, obviously</small></div></div></div>`
+  : `<div class="ccard hero"><span class="big">🦅</span><div>
+      <div class="lbl">Stage ${D.stage_mvp.stage} — America's TRUE Champion</div>
+      <div class="val">${mvp?mvp.emoji:''} ${D.stage_mvp.name} <small>· robbed at ${ord(D.stage_mvp.rank)} overall</small></div></div></div>`;
+document.getElementById('context').append(el(leaderCard), el(mvpCard));
+
+// peloton
+const heldBy = {};
+Object.entries(D.jerseys).forEach(([k,j])=>{ (heldBy[j.holder]=heldBy[j.holder]||[]).push(j.color); });
+const pel = document.getElementById('peloton');
+D.americans.forEach((a,i)=>{
+  const badges = (heldBy[a.bib]||[]).map(c=>`<span class="b ${c}"></span>`).join('');
+  pel.appendChild(el(`
+    <div class="prow ${i===0?'lead':''}">
+      <div class="ppos">${i===0?'🦅':i+1}</div>
+      <div class="pem">${a.emoji}</div>
+      <div><div class="pname">${a.name}<span class="badges">${badges}</span></div>
+        <div class="pmeta">${a.city}, ${a.state} · ${a.team}</div></div>
+      <div class="pright"><div class="pgap">${a.us_gap==='—'?'👑 AMERICA #1':a.us_gap}</div>
+        <div class="pstage">GC <b>${ord(a.gc_rank)}</b> vs the world · stage ${ord(a.stage_rank)}</div></div>
+    </div>`));
+});
+
+// teams
+function renderTeams(g){
+  const box = document.getElementById('teams'); box.innerHTML='';
+  const rows = D.teams[g]; const max = Math.max(...rows.map(r=>r.per_rider),1);
+  box.appendChild(el(`<div class="teamhint">Scored by <b>points per rider</b> (total ÷ riders) — so a lone hero isn't punished for having no teammates.</div>`));
+  rows.forEach((t)=>{
+    const mem = t.members.map(m=>m.emoji).join('');
+    box.appendChild(el(`
+      <div class="teamrow">
+        <div class="tlabel"><span class="em">${t.emoji}</span><div>${t.label}
+          <div class="mem">${mem} ${t.n_riders} patriot${t.n_riders===1?'':'s'} · ${t.points} pts total</div></div></div>
+        <div class="bar" style="width:${Math.max(8,t.per_rider/max*100)}%"></div>
+        <div class="tpts">${t.per_rider}<span class="per">per rider</span></div>
+      </div>`));
+  });
+  const note = {
+    state:'Arizona and Colorado each field two riders — a glorious 2-on-2 civil war for freedom.',
+    region:'Every last American is a Westerner. The East, Midwest and South remain proudly winless (0 riders — freedom is a frontier sport).',
+    hometown:'Durango, Colorado starts TWO men. The greatest cycling town in the greatest nation on Earth.'}[g];
+  box.appendChild(el(`<div class="teamnote">★ ${note}</div>`));
+}
+document.getElementById('teamToggle').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  [...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));
+  renderTeams(e.target.dataset.g);
+});
+renderTeams('state');
+
+// timeline
+const PROF = {tt:'⏱ TT',flat:'🏁 flat',hilly:'⛰ hilly',mountain:'🏔 mtn'};
+const tl = document.getElementById('timeline');
+D.timeline.forEach(s=>{
+  const m = byBib[s.mvp_bib];
+  const usWon = s.mvp_rank === 1;
+  const sub = s.mvp_rank ? (usWon ? ord(s.mvp_rank)+' — AN ACTUAL WIN 🎉' : ord(s.mvp_rank)+' "officially"') : '—';
+  const fake = usWon
+    ? `<div class="fake"><div class="cap">🏆 The "official" winner</div>
+        <div class="nm" style="text-decoration:none;color:#3a3a3a">Also ${s.mvp_name}. Deal with it.</div></div>`
+    : `<div class="fake"><div class="cap">🙄 So-called "winner"</div><div class="nm">${s.winner}</div></div>`;
+  tl.appendChild(el(`
+    <div class="tchip">
+      <div class="st"><span>Stage ${s.stage}</span><span class="prof">${PROF[s.profile]||s.profile}</span></div>
+      <div class="real">
+        <div class="cap">🦅 Real Winner</div>
+        <div class="nm">${m?m.emoji:''} ${s.mvp_name}</div>
+        <div class="sub">best American · ${sub}</div>
+      </div>
+      ${fake}
+    </div>`));
+});
+
+// riders
+const rz = document.getElementById('riders');
+D.riders.forEach(r=>{
+  rz.appendChild(el(`
+    <div class="rcard">
+      <div class="rt"><span class="em">${r.emoji}</span>
+        <div><div class="rn">${r.name}</div><div class="rfrom">${r.city}, ${r.state} · ${r.team}</div></div></div>
+      <span class="rtype">${r.type}</span>
+      <div class="rbl">${r.blurb}</div>
+    </div>`));
+});
+
+// nation standings — pick your metric, pick your cope
+document.getElementById('worldnote').innerHTML =
+  `America is, and always shall be, <b>#1 in our hearts</b> 🇺🇸🦅 — a metric we invented, own, and shamelessly rig. `+
+  `By every metric we did <i>not</i> invent, results vary. Pick your preferred way of counting below:`;
+const NAT_METRICS = {
+  best: {label:'Best Rider', col:'GC pos', sort:(a,b)=>a.best_rank-b.best_rank,
+    val:c=>'GC '+ord(c.best_rank),
+    explain:'each nation ranked by its single best-placed rider on the overall classification'},
+  avg: {label:'Avg GC Time', col:'Avg time', sort:(a,b)=>a.avg_time_s-b.avg_time_s,
+    val:c=>c.avg_time,
+    explain:'ranked by the <i>average</i> overall time of every rider a nation brought — a big squad of knackered domestiques drags you way down'},
+  wins: {label:'Stage Wins', col:'Wins', sort:(a,b)=>(b.stage_wins-a.stage_wins)||(a.best_rank-b.best_rank),
+    val:c=>c.stage_wins,
+    explain:'ranked by actual stage wins — the only statistic with any dignity, which is precisely why we don’t like to bring it up'},
+  squad: {label:'Squad Size', col:'Riders', sort:(a,b)=>(b.riders-a.riders)||(a.best_rank-b.best_rank),
+    val:c=>c.riders,
+    explain:'ranked by sheer manpower — America heroically sent six; some nations sent an entire army'},
+};
+function renderNations(m){
+  const cfg = NAT_METRICS[m];
+  const rows = [...D.countries].sort(cfg.sort);
+  const usaRank = rows.findIndex(c=>c.is_usa)+1;
+  const posTxt = usaRank===1
+    ? `right at the <b>top</b> — as it should be, and for once we won't argue with the math`
+    : `<b>#${usaRank}</b> of ${rows.length}, behind (of all places) <b>${rows[0].name}</b>`;
+  document.getElementById('natExplain').innerHTML =
+    `<b>${cfg.label}:</b> ${cfg.explain}. On this one, America sits ${posTxt}.`;
+  const box = document.getElementById('countries'); box.innerHTML='';
+  box.appendChild(el(`<div class="crow head"><div class="crank">#</div><div>Nation</div><div class="cval">${cfg.col}</div></div>`));
+  rows.slice(0,12).forEach((c,i)=>{
+    box.appendChild(el(`
+      <div class="crow ${c.is_usa?'usa':''}">
+        <div class="crank">${i+1}</div>
+        <div class="cname"><span class="fl">${c.emoji}</span><div>${c.name}
+          <div class="csub">best: ${c.best_rider} · GC ${ord(c.best_rank)} · ${c.riders} rider${c.riders===1?'':'s'} · ${c.stage_wins} win${c.stage_wins===1?'':'s'}</div></div></div>
+        <div class="cval">${cfg.val(c)}</div>
+      </div>`));
+  });
+}
+document.getElementById('natToggle').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  [...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b===e.target));
+  renderNations(e.target.dataset.m);
+});
+renderNations('best');
+
+// visitor counter — REAL global hit counter (Abacus), local fallback.
+// Vanity-seeded with a 1,776,000 head start (very GeoCities; 1776 heritage),
+// but every real page load still increments it.
+const VC_BASE = 1776000;
+const mailBody = encodeURIComponent(
+  "Dear Webmaster,\n\nI am writing to formally demand that the Tour de France be relocated to Ohio, "+
+  "that all distances henceforth be reported in freedom units (miles), and that Sepp Kuss receive "+
+  "substantially more screen time.\n\nCC: Richard Plugge\n\nGod bless,\nA Concerned Patriot 🇺🇸");
+document.getElementById('footer').innerHTML =
+  `<div class="counter">YOU ARE VISITOR NO. <span id="visitnum">${String(VC_BASE).padStart(7,'0')}</span></div><br>`+
+  `🚧 THIS SITE IS PERPETUALLY UNDER CONSTRUCTION 🚧 &nbsp;·&nbsp; Best viewed in Netscape Navigator 4.0 at 800×600.<br>`+
+  `<a href="https://www.letour.fr/en/" target="_blank" rel="noopener">Sign the guestbook</a> `+
+  `<i>(lodge your formal complaint with the organizers)</i> &nbsp;·&nbsp; `+
+  `<a href="mailto:webmaster@tour-de-france-de-america.us?subject=URGENT%3A%20A%20FORMAL%20COMPLAINT&body=${mailBody}">Email the webmaster</a> `+
+  `<i>(he will not respond)</i>. God bless.<br>`+
+  `<span class="fine">Not affiliated with A.S.O., France, the metric system, or the concept of losing gracefully. `+
+  `${D.meta.note} American-only jerseys &amp; "real" stage winners computed among Americans, as is proper. Data: letour.fr.</span>`;
+function setVisits(n){ const e=document.getElementById('visitnum'); if(e) e.textContent=String(n).padStart(7,'0'); }
+let localN=0; try{ localN=parseInt(localStorage.getItem('tdfda_visits')||'0',10)+1; localStorage.setItem('tdfda_visits',localN);}catch(e){}
+setVisits(VC_BASE+localN);   // show something immediately
+fetch('https://abacus.jasoncameron.dev/hit/tour-de-france-de-america/visits')
+  .then(r=>r.json()).then(d=>{ if(d&&typeof d.value==='number') setVisits(VC_BASE+d.value); })
+  .catch(()=>{ /* offline: keep the local fallback number */ });
+
+// ===== THE EAGLE OF DURANGO — synthesized red-tailed hawk scream =====
+// ===== THE EAGLE OF DURANGO =====
+// Primary: the real screech recording (web/eagle-screech.mp3).
+// Fallback: a synthesized red-tailed-hawk scream (broadband noise + swept
+// formants + rasp) if the file can't play — keeps it working offline.
+let AC;
+const eagleAudio = new Audio('eagle-screech.mp3?v=' + Date.now());
+eagleAudio.preload = 'auto'; eagleAudio.volume = 0.9;
+function synthScream(){
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    if (AC.state === 'suspended') AC.resume();
+    const ctx = AC, t0 = ctx.currentTime;
+    const DUR = 2.2 + Math.random()*0.35;      // natural variation
+    const top = 3400 + Math.random()*500;      // peak brightness of this cry
+
+    // master envelope — the overall arc of the scream
+    const master = ctx.createGain(); master.connect(ctx.destination);
+    const g = master.gain;
+    g.setValueAtTime(0.0001, t0);
+    g.exponentialRampToValueAtTime(0.85, t0+0.05);   // sharp onset
+    g.linearRampToValueAtTime(0.9, t0+0.45);
+    g.setValueAtTime(0.9, t0+DUR*0.55);
+    g.linearRampToValueAtTime(0.6, t0+DUR*0.82);
+    g.exponentialRampToValueAtTime(0.0001, t0+DUR); // long trailing fade
+
+    // rasp — a fast amplitude flutter (tremolo) over everything; it slows as
+    // the pitch falls, like the real call
+    const trem = ctx.createGain(); trem.gain.value = 0.6; trem.connect(master);
+    const lfo = ctx.createOscillator(); lfo.type='sawtooth';
+    lfo.frequency.setValueAtTime(115, t0);
+    lfo.frequency.exponentialRampToValueAtTime(55, t0+DUR);
+    const lfoDepth = ctx.createGain(); lfoDepth.gain.value = 0.4;
+    lfo.connect(lfoDepth); lfoDepth.connect(trem.gain);
+
+    // broadband noise = the breathy, hoarse body of the scream
+    const buf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate*DUR), ctx.sampleRate);
+    const dd = buf.getChannelData(0);
+    for (let i=0;i<dd.length;i++) dd[i] = Math.random()*2-1;
+    const noise = ctx.createBufferSource(); noise.buffer = buf;
+
+    // formant 1 (dominant band): quick rise, then long descending slur
+    const f1 = ctx.createBiquadFilter(); f1.type='bandpass'; f1.Q.value=11;
+    f1.frequency.setValueAtTime(top*0.6, t0);
+    f1.frequency.linearRampToValueAtTime(top, t0+0.14);
+    f1.frequency.exponentialRampToValueAtTime(1450, t0+DUR);
+    // formant 2 (upper): the screechy overtone
+    const f2 = ctx.createBiquadFilter(); f2.type='bandpass'; f2.Q.value=8;
+    f2.frequency.setValueAtTime(top*1.25, t0);
+    f2.frequency.exponentialRampToValueAtTime(2500, t0+DUR);
+    const f2g = ctx.createGain(); f2g.gain.value=0.45;
+    noise.connect(f1); f1.connect(trem);
+    noise.connect(f2); f2.connect(f2g); f2g.connect(trem);
+
+    // faint tonal core so a falling pitch is discernible under the rasp
+    const osc = ctx.createOscillator(); osc.type='sawtooth';
+    osc.frequency.setValueAtTime(top*0.32, t0);
+    osc.frequency.linearRampToValueAtTime(top*0.42, t0+0.14);
+    osc.frequency.exponentialRampToValueAtTime(600, t0+DUR);
+    const obp = ctx.createBiquadFilter(); obp.type='bandpass'; obp.frequency.value=1800; obp.Q.value=2.5;
+    const og = ctx.createGain(); og.gain.value=0.16;
+    osc.connect(obp); obp.connect(og); og.connect(trem);
+
+    lfo.start(t0); noise.start(t0); osc.start(t0);
+    lfo.stop(t0+DUR); noise.stop(t0+DUR); osc.stop(t0+DUR);
+  }catch(e){ /* no audio available */ }
+}
+function screamEagle(){
+  // visual cry
+  const s = document.getElementById('scream');
+  const cries = ['SCREEEEEEE! 🦅','KEEE-EEEE-ARRR! 🦅','FREEEEEDOM! 🦅','SEPPPP! 🦅'];
+  s.textContent = cries[Math.floor(Math.random()*cries.length)];
+  s.classList.remove('go'); void s.offsetWidth; s.classList.add('go');
+  // real screech; fall back to the synth if the file can't play
+  try{
+    eagleAudio.currentTime = 0;
+    const p = eagleAudio.play();
+    if (p && typeof p.catch === 'function') p.catch(()=>synthScream());
+  }catch(e){ synthScream(); }
+}
+document.getElementById('eagleBtn').addEventListener('click', screamEagle);
+</script>
+</body>
+</html>

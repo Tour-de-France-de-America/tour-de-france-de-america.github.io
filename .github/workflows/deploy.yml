@@ -1,0 +1,43 @@
+name: Update & Deploy TDFdA
+
+# Runs after each stage settles (and on demand), refreshes the data from
+# letour.fr, recomputes the American standings, and deploys the dashboard to
+# GitHub Pages. No secrets, no committing back — it builds and publishes.
+
+on:
+  schedule:
+    # July TdF is CEST (UTC+2). Stages finish ~17:15 CEST; jury settles by ~20:00.
+    - cron: '0 16 * * *'   # 18:00 CEST — first pull, right after the finish
+    - cron: '30 18 * * *'  # 20:30 CEST — settled pull (catches jury corrections)
+  workflow_dispatch: {}    # lets you trigger a refresh manually anytime
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch results + compute standings
+        run: |
+          python3 src/fetch.py
+          python3 src/compute.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deploy
+        uses: actions/deploy-pages@v4
