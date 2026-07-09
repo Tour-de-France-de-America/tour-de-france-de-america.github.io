@@ -187,6 +187,20 @@
   .fake{padding:8px 11px}
   .fake .cap{font-family:Arial,sans-serif;font-size:9.5px;font-weight:bold;color:var(--faint);text-transform:uppercase}
   .fake .nm{font-size:13px;color:var(--faint);margin-top:2px;text-decoration:line-through;text-decoration-color:var(--red)}
+  /* a stage an American actually won */
+  .tchip.win{border:3px outset #f4d03f;box-shadow:0 0 0 2px var(--red)}
+  .tchip .st.win{background:var(--red);color:#fff}
+  .real.win{background:repeating-linear-gradient(45deg,#fff8dd 0 10px,#fff 10px 20px);border-bottom:0}
+  .real.win .cap{color:#0a7d2c}
+  .real.win .nm{font-size:17px}
+
+  /* AMERICAN STAGE WIN banner (only appears the day one happens) */
+  .winbanner{margin:14px -20px;padding:16px 18px;text-align:center;color:#5a1020;
+    background:repeating-linear-gradient(45deg,#f4d03f 0 20px,#ffe680 20px 40px);
+    border-top:5px solid var(--red);border-bottom:5px solid var(--blue)}
+  .winbanner .big{font-family:Impact,sans-serif;font-size:27px;line-height:1.05;text-transform:uppercase;
+    letter-spacing:.02em;color:#7a1020;text-shadow:1px 1px 0 #fff}
+  .winbanner .sub{font-family:Georgia,serif;font-size:14px;margin-top:6px;color:#3a2a00}
 
   /* riders */
   .riders{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -244,6 +258,8 @@
   </center>
 
   <marquee class="ticker" id="ticker" scrollamount="6" behavior="scroll">🇺🇸 U S A &middot; U S A &middot; U S A 🇺🇸</marquee>
+
+  <div id="winBanner"></div>
 
   <center class="eaglewrap">
     <button class="eaglebtn" id="eagleBtn">🦅 SUMMON THE EAGLE OF DURANGO 🦅</button>
@@ -410,28 +426,47 @@ document.getElementById('teamToggle').addEventListener('click',e=>{
 });
 renderTeams('state');
 
-// timeline
+// timeline (defaults scrolled to the latest stage)
 const PROF = {tt:'⏱ TT',flat:'🏁 flat',hilly:'⛰ hilly',mountain:'🏔 mtn'};
 const tl = document.getElementById('timeline');
 D.timeline.forEach(s=>{
   const m = byBib[s.mvp_bib];
-  const usWon = s.mvp_rank === 1;
-  const sub = s.mvp_rank ? (usWon ? ord(s.mvp_rank)+': AN ACTUAL WIN 🎉' : ord(s.mvp_rank)+' "officially"') : '-';
-  const fake = usWon
-    ? `<div class="fake"><div class="cap">🏆 The "official" winner</div>
-        <div class="nm" style="text-decoration:none;color:#3a3a3a">Also ${s.mvp_name}. Deal with it.</div></div>`
-    : `<div class="fake"><div class="cap">🙄 So-called "winner"</div><div class="nm">${s.winner}</div></div>`;
-  tl.appendChild(el(`
-    <div class="tchip">
-      <div class="st"><span>Stage ${s.stage}</span><span class="prof">${PROF[s.profile]||s.profile}</span></div>
-      <div class="real">
-        <div class="cap">🦅 Real Winner</div>
-        <div class="nm">${m?m.emoji:''} ${s.mvp_name}</div>
-        <div class="sub">best American · ${sub}</div>
-      </div>
-      ${fake}
-    </div>`));
+  if (s.mvp_rank === 1){
+    // an American actually won the stage: full celebration, no so-called winner
+    tl.appendChild(el(`
+      <div class="tchip win">
+        <div class="st win"><span>Stage ${s.stage}</span><span>🏆 USA WIN</span></div>
+        <div class="real win">
+          <div class="cap">🇺🇸 American Stage Winner</div>
+          <div class="nm">${m?m.emoji:''} ${s.mvp_name}</div>
+          <div class="sub">First across the line. No asterisk, no so-called about it.</div>
+        </div>
+      </div>`));
+  } else {
+    const sub = s.mvp_rank ? ord(s.mvp_rank)+' "officially"' : '-';
+    tl.appendChild(el(`
+      <div class="tchip">
+        <div class="st"><span>Stage ${s.stage}</span><span class="prof">${PROF[s.profile]||s.profile}</span></div>
+        <div class="real">
+          <div class="cap">🦅 Real Winner</div>
+          <div class="nm">${m?m.emoji:''} ${s.mvp_name}</div>
+          <div class="sub">best American · ${sub}</div>
+        </div>
+        <div class="fake"><div class="cap">🙄 So-called "winner"</div><div class="nm">${s.winner}</div></div>
+      </div>`));
+  }
 });
+tl.scrollLeft = tl.scrollWidth;   // start at the most recent stage
+
+// AMERICAN STAGE WIN banner: fires when the most recent stage was won by an American
+(function(){
+  const latest = D.timeline[D.timeline.length - 1];
+  if (!latest || latest.mvp_rank !== 1) return;
+  document.getElementById('winBanner').className = 'winbanner';
+  document.getElementById('winBanner').innerHTML =
+    `<div class="big">🎆 🇺🇸 STOP THE PRESSES 🇺🇸 🎆<br>${latest.mvp_name} won Stage ${latest.stage}</div>`+
+    `<div class="sub">An American has actually done it. For once, the real winner and the so-called winner are the same man.</div>`;
+})();
 
 // riders
 const rz = document.getElementById('riders');
