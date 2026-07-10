@@ -6,14 +6,14 @@ name: Update & Deploy TDFdA
 
 on:
   schedule:
-    # July TdF is CEST (UTC+2). Stages finish ~17:15 CEST; jury settles by ~20:00.
-    # GitHub delays or drops top-of-hour schedules, so we use off-peak minutes and
-    # several attempts across the results window. Runs are idempotent (re-deploying
-    # the same data is harmless), so redundancy only helps.
-    - cron: '40 15 * * *'   # 17:40 CEST, shortly after the stage finish
-    - cron: '43 17 * * *'   # 19:43 CEST, once results settle
-    - cron: '13 20 * * *'   # 22:13 CEST, final catch for late jury changes
-  workflow_dispatch: {}     # lets you trigger a refresh manually anytime
+    # GitHub's scheduled runs are best-effort and unreliable: they've fired ~90 min
+    # late and been dropped entirely on other days. Rather than trust a few precise
+    # slots, we attempt every ~30 min across the whole results window (a stage
+    # finishes ~15:15 UTC and settles by ~17:30). Runs are idempotent and
+    # cancel-in-progress, so frequent attempts are cheap insurance, not waste:
+    # even with big delays and random skips, one lands soon after results post.
+    - cron: '7,37 15-21 * * *'   # :07 and :37 each hour, 15:07-21:37 UTC (17:07-23:37 CEST)
+  workflow_dispatch: {}          # manual refresh anytime
 
 permissions:
   contents: read
